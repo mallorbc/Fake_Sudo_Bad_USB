@@ -57,9 +57,7 @@ int main(int argc, char *argv[])
         tcsetattr(STDIN_FILENO, TCSANOW, &newt);
         std::cin >> obtained_password;
         //turns terminal back on
-
         tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-        // std::cout << "\n obtained pass: " << obtained_password;
         execute_command(obtained_password, payload);
     }
 

