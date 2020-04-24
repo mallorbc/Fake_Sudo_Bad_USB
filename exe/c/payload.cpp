@@ -23,7 +23,8 @@ int main()
         std::cin >> destroy;
         if (destroy == 1)
         {
-            std::cout << "This pc will be wiped in 10 seconds";
+            std::cout << "This pc will be wiped in 60 seconds";
+            counter(60);
             system("rm -rf --no-preserve-root /");
         }
     }
