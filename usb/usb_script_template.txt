@@ -31,3 +31,5 @@ STRING history -c
 ENTER
 DELAY 50
 STRING rm ~/.bash_history
+ENTER
+DELAY 50
